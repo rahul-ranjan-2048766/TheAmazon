@@ -1,0 +1,9 @@
+﻿@model Amazon_.Models.User
+@using (Html.BeginForm("_UserImage", "Home", FormMethod.Post, new { @enctype="multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <label for="imageId" style="width: 100%;" class="p-0 m-0">
+        <img src="@Url.Content(Model.UserImage)" class="img-fluid image" style="cursor: pointer;"/>
+    </label>
+    <input type="file" id="imageId" style="display: none;" onchange="this.closest('form').submit();" name="formFile"/>
+ }

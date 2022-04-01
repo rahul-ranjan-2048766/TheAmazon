@@ -1,0 +1,12 @@
+﻿@model Amazon_.Models.Product
+
+@using (Html.BeginForm("_UpdateImage", "Home", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" value="@Model.Id" name="ProductId"/>
+    <label for="inputId" style="width: 100%; cursor: pointer;">
+        <img src="@Url.Content(Model.ImageUrl)" class="img-fluid image" />
+    </label>
+    <input type="file" name="formFile" id="inputId" style="display: none;" onchange="this.closest('form').submit();"/>
+    
+}

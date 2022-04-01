@@ -1,0 +1,276 @@
+﻿@model Tuple<Amazon_.Models.Product, List<Amazon_.Models.Category>, List<Amazon_.Models.Product>>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nanum+Gothic&family=Nanum+Myeongjo&family=Noto+Serif+Devanagari:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Quicksand&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100;300;400;500&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        * {
+            font-family: 'Baskervville', serif;
+            font-family: 'EB Garamond', serif;
+            font-family: 'Lora', serif;
+            font-family: 'Montserrat', sans-serif;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-family: 'Nanum Myeongjo', serif;
+            font-family: 'Noto Serif Devanagari', serif;
+            font-family: 'Open Sans', sans-serif;
+            font-family: 'Quicksand', sans-serif;
+            font-family: 'Raleway', sans-serif;
+            font-family: 'Roboto', sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .bar {
+            background: #6495edd0;
+            color: #ffffff;
+        }
+
+        .input {
+            font-size: 12px;
+            letter-spacing: 1px;
+            padding-left: 40px;
+        }
+
+        .search_btn {
+            cursor: pointer;
+            color: #c71585;
+            font-size: 12px;
+            letter-spacing: 1px;
+            background: transparent;
+            border: 1px solid #c71585;
+            border-radius: 2px;
+            outline: none;
+        }
+
+            .search_btn:hover {
+                background: #c71585;
+                color: #ffffff;
+            }
+
+        li {
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+
+            li:hover {
+                border-bottom: 2px solid #ffffff;
+            }
+
+        .label_cover {
+            padding: 8px;
+            width: 100%;
+            padding-left: 15px;
+            color: #80808060;
+            pointer-events: none;
+        }
+
+        .image {
+            width: 100%;
+            height: 60vh;
+        }
+
+        .p_tag {
+            color: #808080;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .card_cover {
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+            border-left: 2px solid #c71585;
+        }
+
+        .place_order {
+            cursor: pointer;
+            padding: 10px 20px 10px 20px;
+            color: #ffffff;
+            font-size: 12px;
+            letter-spacing: 1px;
+            border: none;
+            outline: none;
+            background: #c71585a0;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            width: 100%;
+        }
+
+        .place_order:hover{
+            background: #c71585d0;
+        }
+
+        .image46 {
+            width: 100%;
+            height: 34vh;
+        }
+
+        .p_tag46 {
+            color: #808080;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .card_cover46 {
+            cursor: pointer;
+            display: inline-block;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+        }
+
+            .card_cover46:hover {
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            }
+
+        .home{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    @if (ViewBag.User == null)
+    {
+        <nav class="navbar navbar-expand-lg navbar-light bar p-0 fixed-top">
+            <div class="container p-0">
+                <a class="navbar-brand" style="color: #ffffff; letter-spacing: 1px; font-weight: 600; user-select: none; cursor: default;" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-snow2" viewBox="0 0 16 16">
+                        <path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.707-.708L7.5 12.793v-1.086l-.646.647a.5.5 0 0 1-.707-.708L7.5 10.293V8.866l-1.236.713-.495 1.85a.5.5 0 1 1-.966-.26l.237-.882-.94.542-.496 1.85a.5.5 0 1 1-.966-.26l.237-.882-1.12.646a.5.5 0 0 1-.5-.866l1.12-.646-.884-.237a.5.5 0 1 1 .26-.966l1.848.495.94-.542-.882-.237a.5.5 0 1 1 .258-.966l1.85.495L7 8l-1.236-.713-1.849.495a.5.5 0 1 1-.258-.966l.883-.237-.94-.542-1.85.495a.5.5 0 0 1-.258-.966l.883-.237-1.12-.646a.5.5 0 1 1 .5-.866l1.12.646-.237-.883a.5.5 0 0 1 .966-.258l.495 1.849.94.542-.236-.883a.5.5 0 0 1 .966-.258l.495 1.849 1.236.713V5.707L6.147 4.354a.5.5 0 1 1 .707-.708l.646.647V3.207L6.147 1.854a.5.5 0 1 1 .707-.708l.646.647V.5a.5.5 0 0 1 1 0v1.293l.647-.647a.5.5 0 1 1 .707.708L8.5 3.207v1.086l.647-.647a.5.5 0 1 1 .707.708L8.5 5.707v1.427l1.236-.713.495-1.85a.5.5 0 1 1 .966.26l-.236.882.94-.542.495-1.85a.5.5 0 1 1 .966.26l-.236.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.883.237a.5.5 0 1 1-.26.966l-1.848-.495-.94.542.883.237a.5.5 0 1 1-.26.966l-1.848-.495L9 8l1.236.713 1.849-.495a.5.5 0 0 1 .259.966l-.883.237.94.542 1.849-.495a.5.5 0 0 1 .259.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.236.883a.5.5 0 1 1-.966.258l-.495-1.849-.94-.542.236.883a.5.5 0 0 1-.966.258L9.736 9.58 8.5 8.866v1.427l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647v1.086l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647V15.5a.5.5 0 0 1-.5.5z" />
+                    </svg>&nbsp;Amazon
+                </a>
+                <button class="navbar-toggler m-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="#ffffff" class="bi bi-strava" viewBox="0 0 16 16">
+                        <path d="M6.731 0 2 9.125h2.788L6.73 5.497l1.93 3.628h2.766L6.731 0zm4.694 9.125-1.372 2.756L8.66 9.125H6.547L10.053 16l3.484-6.875h-2.112z" />
+                    </svg>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto m-0 mb-lg-0">
+                        <li class="nav-item p-0 mx-2" onclick="location.href = '@Url.Action("Site", "Home")'" style="border-bottom: 2px solid #ffffff;"><a class="nav-link active" style="color: #ffffff; letter-spacing: 1px; font-size: 13px; font-weight: 600;" aria-current="page" href="#">Home</a></li>
+                        <li class="nav-item p-0 mx-2" onclick="location.href='@Url.Action("UserLogin", "Home")'"><a class="nav-link active" style="color: #ffffff; letter-spacing: 1px; font-size: 13px; font-weight: 600;" aria-current="page" href="#">Sign In</a></li>
+                        <li class="nav-item dropdown p-0 mx-2">
+                            <a class="nav-link dropdown-toggle" href="#" style="color: #ffffff; letter-spacing: 1px; font-size: 13px; font-weight: 600;" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Category
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach (var category in Model.Item2)
+                                {
+                                    <li onclick="location.href='@Url.Action("SearchProduct", "Home", new { word = category.CategoryName })'"><a class="dropdown-item" href="#">@category.CategoryName</a></li>
+                                }
+                            </ul>
+                        </li>
+                        <li class="nav-item p-0 mx-2" onclick="location.href = '@Url.Action("AdminPanel", "Home")'"><a class="nav-link active" style="color: #ffffff; letter-spacing: 1px; font-size: 13px; font-weight: 600;" aria-current="page" href="#">Are you Admin?</a></li>
+                    </ul>
+
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "d-flex mt-3 col-lg-5 position-relative" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input class="form-control m-0 input" type="search" placeholder="Search" name="word">
+                        <label class="position-absolute top-0 end-0 label_cover">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search-heart-fill" viewBox="0 0 16 16">
+                                <path d="M6.5 13a6.474 6.474 0 0 0 3.845-1.258h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.008 1.008 0 0 0-.115-.1A6.471 6.471 0 0 0 13 6.5 6.502 6.502 0 0 0 6.5 0a6.5 6.5 0 1 0 0 13Zm0-8.518c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
+                            </svg>
+                        </label>
+                    }
+
+                </div>
+            </div>
+        </nav>
+    }
+    else
+    {
+        <nav class="navbar navbar-expand-lg navbar-light bar p-0 fixed-top">
+            <div class="container p-0">
+                <a class="navbar-brand" style="color: #ffffff; letter-spacing: 1px; font-weight: 600; user-select: none; cursor: default;" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-snow2" viewBox="0 0 16 16">
+                        <path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.707-.708L7.5 12.793v-1.086l-.646.647a.5.5 0 0 1-.707-.708L7.5 10.293V8.866l-1.236.713-.495 1.85a.5.5 0 1 1-.966-.26l.237-.882-.94.542-.496 1.85a.5.5 0 1 1-.966-.26l.237-.882-1.12.646a.5.5 0 0 1-.5-.866l1.12-.646-.884-.237a.5.5 0 1 1 .26-.966l1.848.495.94-.542-.882-.237a.5.5 0 1 1 .258-.966l1.85.495L7 8l-1.236-.713-1.849.495a.5.5 0 1 1-.258-.966l.883-.237-.94-.542-1.85.495a.5.5 0 0 1-.258-.966l.883-.237-1.12-.646a.5.5 0 1 1 .5-.866l1.12.646-.237-.883a.5.5 0 0 1 .966-.258l.495 1.849.94.542-.236-.883a.5.5 0 0 1 .966-.258l.495 1.849 1.236.713V5.707L6.147 4.354a.5.5 0 1 1 .707-.708l.646.647V3.207L6.147 1.854a.5.5 0 1 1 .707-.708l.646.647V.5a.5.5 0 0 1 1 0v1.293l.647-.647a.5.5 0 1 1 .707.708L8.5 3.207v1.086l.647-.647a.5.5 0 1 1 .707.708L8.5 5.707v1.427l1.236-.713.495-1.85a.5.5 0 1 1 .966.26l-.236.882.94-.542.495-1.85a.5.5 0 1 1 .966.26l-.236.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.883.237a.5.5 0 1 1-.26.966l-1.848-.495-.94.542.883.237a.5.5 0 1 1-.26.966l-1.848-.495L9 8l1.236.713 1.849-.495a.5.5 0 0 1 .259.966l-.883.237.94.542 1.849-.495a.5.5 0 0 1 .259.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.236.883a.5.5 0 1 1-.966.258l-.495-1.849-.94-.542.236.883a.5.5 0 0 1-.966.258L9.736 9.58 8.5 8.866v1.427l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647v1.086l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647V15.5a.5.5 0 0 1-.5.5z" />
+                    </svg>&nbsp;Amazon
+                </a>
+                <button class="navbar-toggler m-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="#ffffff" class="bi bi-strava" viewBox="0 0 16 16">
+                        <path d="M6.731 0 2 9.125h2.788L6.73 5.497l1.93 3.628h2.766L6.731 0zm4.694 9.125-1.372 2.756L8.66 9.125H6.547L10.053 16l3.484-6.875h-2.112z" />
+                    </svg>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto m-0 mb-lg-0">
+                        <li class="nav-item p-0 mx-2" onclick="location.href = '@Url.Action("Site", "Home")'" style="border-bottom: 2px solid #ffffff;"><a class="nav-link active" style="color: #ffffff; letter-spacing: 1px; font-size: 13px; font-weight: 600;" aria-current="page" href="#">Home</a></li>
+                        <li class="nav-item p-0 mx-2" onclick="location.href='@Url.Action("UserProfile", "Home")'"><a class="nav-link active" style="color: #ffffff; letter-spacing: 1px; font-size: 13px; font-weight: 600;" aria-current="page" href="#">My Profile</a></li>
+                        <li class="nav-item p-0 mx-2" onclick="location.href='@Url.Action("UserCart", "Home")'"><a class="nav-link active" style="color: #ffffff; letter-spacing: 1px; font-size: 13px; font-weight: 600;" aria-current="page" href="#">My Cart</a></li>
+                        <li class="nav-item dropdown p-0 mx-2">
+                            <a class="nav-link dropdown-toggle" href="#" style="color: #ffffff; letter-spacing: 1px; font-size: 13px; font-weight: 600;" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Category
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach (var category in Model.Item2)
+                                {
+                                    <li onclick="location.href='@Url.Action("SearchProduct", "Home", new { word = category.CategoryName })'"><a class="dropdown-item" href="#">@category.CategoryName</a></li>
+                                }
+                            </ul>
+                        </li>
+                        <li class="nav-item p-0 mx-2" onclick="location.href = '@Url.Action("LogOut", "Home")'"><a class="nav-link active" style="color: #ffffff; letter-spacing: 1px; font-size: 13px; font-weight: 600;" aria-current="page" href="#">Sign Out</a></li>
+                    </ul>
+
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "d-flex mt-3 col-lg-5 position-relative" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input class="form-control m-0 input" type="search" placeholder="Search" name="word">
+                        <label class="position-absolute top-0 end-0 label_cover">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search-heart-fill" viewBox="0 0 16 16">
+                                <path d="M6.5 13a6.474 6.474 0 0 0 3.845-1.258h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.008 1.008 0 0 0-.115-.1A6.471 6.471 0 0 0 13 6.5 6.502 6.502 0 0 0 6.5 0a6.5 6.5 0 1 0 0 13Zm0-8.518c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
+                            </svg>
+                        </label>
+                    }
+
+                </div>
+            </div>
+        </nav>
+    }
+    <div class="p-4"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#6495ed" class="bi bi-box-arrow-left m-4 home" viewBox="0 0 16 16" onclick="location.href='@Url.Action("Site", "Home")'">
+        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z" />
+        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+    </svg>
+    <div class="card_cover col-lg-7 m-auto p-0 row">
+        <div class="col-lg-6 m-0 p-4 d-flex flex-column justify-content-between">
+            <p class="p_tag">Product Name: @Model.Item1.ProductName</p>
+            <p class="p_tag">Category: @Model.Item1.ProductCategory</p>
+            <p class="p_tag">Price: Rs @Model.Item1.Price</p>
+            <p class="p_tag">Quantity: @Model.Item1.Quantity</p>
+            <p class="p_tag">Company: @Model.Item1.Company</p>
+            <p class="p_tag">Description: @Model.Item1.Description</p>
+            <button class="place_order" onclick="location.href='@Url.Action("PlaceOrder", "Home", new { ProductId=Model.Item1.Id })'">Place Order</button>
+        </div>
+        <div class="col-lg-6 m-0 p-0">
+            <img src="@Url.Content(Model.Item1.ImageUrl)" class="img-fluid image" />
+        </div>
+    </div>
+    @if (Model.Item3.Count() != 0)
+    {
+        <h1 style="color: #808080; font-weight: 600; font-size: 26px; letter-spacing: 1px; border-bottom: 1px solid #80808040;" class="p-4">People who bought this also bought....</h1>
+        @foreach (var d in Model.Item3)
+        {
+            <div class="card_cover46 col-lg-2 m-3" onclick="location.href = '@Url.Action("ViewProductToUser", "Home", new { id = d.Id })'">
+                <img src="@Url.Content(d.ImageUrl)" class="img-fluid image46" />
+                <div class="d-flex flex-row align-items-center justify-content-between p-2">
+                    <div class="p_tag46">Price: Rs @d.Price</div>
+                    <div class="p_tag46">Quantity: @d.Quantity</div>
+                </div>
+                <div class="card-footer text-center" style="font-size:10px;letter-spacing:1px;">
+                    @d.ProductCategory
+                </div>
+            </div>
+        }
+    }
+    <div class="p-4"></div>
+    <footer style="width: 100%; height: 40vh; background: #6495edd0;" class="d-flex flex-column justify-content-end">
+        <div class="p-4 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#ffffff" class="bi bi-snow2" viewBox="0 0 16 16">
+                <path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.707-.708L7.5 12.793v-1.086l-.646.647a.5.5 0 0 1-.707-.708L7.5 10.293V8.866l-1.236.713-.495 1.85a.5.5 0 1 1-.966-.26l.237-.882-.94.542-.496 1.85a.5.5 0 1 1-.966-.26l.237-.882-1.12.646a.5.5 0 0 1-.5-.866l1.12-.646-.884-.237a.5.5 0 1 1 .26-.966l1.848.495.94-.542-.882-.237a.5.5 0 1 1 .258-.966l1.85.495L7 8l-1.236-.713-1.849.495a.5.5 0 1 1-.258-.966l.883-.237-.94-.542-1.85.495a.5.5 0 0 1-.258-.966l.883-.237-1.12-.646a.5.5 0 1 1 .5-.866l1.12.646-.237-.883a.5.5 0 0 1 .966-.258l.495 1.849.94.542-.236-.883a.5.5 0 0 1 .966-.258l.495 1.849 1.236.713V5.707L6.147 4.354a.5.5 0 1 1 .707-.708l.646.647V3.207L6.147 1.854a.5.5 0 1 1 .707-.708l.646.647V.5a.5.5 0 0 1 1 0v1.293l.647-.647a.5.5 0 1 1 .707.708L8.5 3.207v1.086l.647-.647a.5.5 0 1 1 .707.708L8.5 5.707v1.427l1.236-.713.495-1.85a.5.5 0 1 1 .966.26l-.236.882.94-.542.495-1.85a.5.5 0 1 1 .966.26l-.236.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.883.237a.5.5 0 1 1-.26.966l-1.848-.495-.94.542.883.237a.5.5 0 1 1-.26.966l-1.848-.495L9 8l1.236.713 1.849-.495a.5.5 0 0 1 .259.966l-.883.237.94.542 1.849-.495a.5.5 0 0 1 .259.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.236.883a.5.5 0 1 1-.966.258l-.495-1.849-.94-.542.236.883a.5.5 0 0 1-.966.258L9.736 9.58 8.5 8.866v1.427l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647v1.086l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647V15.5a.5.5 0 0 1-.5.5z" />
+            </svg>
+        </div>
+        <div class="p-2"></div>
+        <section style="width: 100%; height: 10vh; background: #6495edd0; display: flex; align-items: center; justify-content: space-around; color: #ffffff; letter-spacing: 1px; font-size: 13px; line-height: 24px; font-weight: 600;">
+            Cognizant Technology Solution India Private Limited
+        </section>
+    </footer>
+</body>
+</html>
